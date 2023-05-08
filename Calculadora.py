@@ -56,17 +56,10 @@ def apagar(lb):
 
 def numerico(lista):
     # transforma a lista em um numero
-    numero = 0
     if lista.count(".") > 0:
-        piri = lista.index(".")
-        for i in range(piri):
-            numero += int(lista[i]) * (10 ** (piri - i - 1))
-        for j in range(len(lista) - 1 - piri):
-            numero += int(lista[-(j + 1)]) / (10 ** (len(lista) - 1 - piri - j))
+        numero = float("".join(lista))
     else:
-        lili = len(lista)
-        for i in range(lili):
-            numero += int(lista[i]) * (10 ** (lili - i - 1))
+        numero = int("".join(lista))
     return numero
 
 
