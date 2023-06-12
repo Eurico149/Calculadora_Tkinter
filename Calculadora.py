@@ -24,6 +24,19 @@ def mensagem():
     return messagebox.showinfo(title="INFO", message="By: Eurico Gabriel Vasconcelos Pereria\n2022")
 
 
+def zero_esquerda(lista):
+    elemento = -1
+    if "." in lista:
+        arg = True
+    else:
+        arg = False
+    while arg:
+        if lista[-1] == "0":
+            lista.pop()
+        else:
+            arg = False
+
+
 def posicao(lb, lista):
     # Posiciona o texto de maneira progressiva no Frame
     if lista.count(".") == 0:
@@ -90,7 +103,7 @@ def principal():
     janela.title("Calculadora")
     janela.geometry(dimensaotela(janela))
     janela.resizable(False, False)
-    janela.iconbitmap("calculator_icon.ico")
+    # janela.iconbitmap("calculator_icon.ico")
     janela.configure(bg="gray10")
 
     def fictures():
@@ -152,6 +165,7 @@ def principal():
                     r = bt["text"]
                     if ordem == 1:
                         switch()
+
             lb3["text"] = r
 
         def btx(bt):
@@ -217,6 +231,7 @@ def principal():
                 if len(lista1) > 14:
                     for i in range(len(lista1) - 14):
                         lista1.pop()
+                zero_esquerda(lista1)
                 s = "".join(lista1)
                 lb1["text"] = s
                 posicao(lb1, lista1)
