@@ -25,7 +25,6 @@ def mensagem():
 
 
 def zero_esquerda(lista):
-    elemento = -1
     if "." in lista:
         arg = True
     else:
