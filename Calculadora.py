@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk, messagebox
+from decimal import Decimal
 
 lista1 = []
 lista2 = []
@@ -22,18 +23,6 @@ def dimensaotela(janela):
 
 def mensagem():
     return messagebox.showinfo(title="INFO", message="By: Eurico Gabriel Vasconcelos Pereria\n2022")
-
-
-def zero_esquerda(lista):
-    if "." in lista:
-        arg = True
-    else:
-        arg = False
-    while arg:
-        if lista[-1] == "0":
-            lista.pop()
-        else:
-            arg = False
 
 
 def posicao(lb, lista):
@@ -69,7 +58,7 @@ def apagar(lb):
 def numerico(lista):
     # transforma a lista em um numero
     if lista.count(".") > 0:
-        numero = float("".join(lista))
+        numero = Decimal("".join(lista))
     else:
         numero = int("".join(lista))
     return numero
@@ -102,7 +91,7 @@ def principal():
     janela.title("Calculadora")
     janela.geometry(dimensaotela(janela))
     janela.resizable(False, False)
-    # janela.iconbitmap("calculator_icon.ico")
+    janela.iconbitmap("calculator_icon.ico")
     janela.configure(bg="gray10")
 
     def fictures():
@@ -230,7 +219,6 @@ def principal():
                 if len(lista1) > 14:
                     for i in range(len(lista1) - 14):
                         lista1.pop()
-                zero_esquerda(lista1)
                 s = "".join(lista1)
                 lb1["text"] = s
                 posicao(lb1, lista1)
