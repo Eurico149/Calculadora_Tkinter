@@ -91,7 +91,7 @@ def principal():
     janela.title("Calculadora")
     janela.geometry(dimensaotela(janela))
     janela.resizable(False, False)
-    janela.iconbitmap("calculator_icon.ico")
+    # janela.iconbitmap("calculator_icon.ico")
     janela.configure(bg="gray10")
 
     def fictures():
